@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import '../styles/globals.css'
+import '../styles/fonts/pixelfabric-clothes/style.css'
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -13,6 +14,7 @@ export default function MyApp({ Component, pageProps }) {
         />
         <meta name="description" content="Description" />
         <meta name="keywords" content="Keywords" />
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"></link>
         <title>Next.js PWA Example</title>
 
         <link rel="manifest" href="/manifest.json" />
@@ -28,8 +30,10 @@ export default function MyApp({ Component, pageProps }) {
           type="image/png"
           sizes="32x32"
         />
+        <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
         <meta name="theme-color" content="#317EFB" />
+        <script src="/modernizr.custom.js"></script>
       </Head>
       <Component {...pageProps} />
     </>
