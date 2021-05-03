@@ -1,7 +1,7 @@
 const CompareBasket = () => {
     return (
-        <div class="compare-basket">
-            <button class="action action--button action--compare"><i class="fa fa-check"></i><span class="action__text">Compare</span></button>
+        <div className="compare-basket">
+            <button className="action action--button action--compare"><i className="fa fa-check"></i><span className="action__text">Compare</span></button>
         </div>
     );
 }

@@ -1,7 +1,7 @@
 const CompareWrapper = () => {
     return (
-        <section class="compare">
-            <button class="action action--close"><i class="fa fa-remove"></i><span class="action__text action__text--invisible">Close comparison overlay</span></button>
+        <section className="compare">
+            <button className="action action--close"><i className="fa fa-remove"></i><span className="action__text action__text--invisible">Close comparison overlay</span></button>
         </section>
     );
 }
