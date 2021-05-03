@@ -17,7 +17,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item shoes">
                 <div className="swiper-container slider">
@@ -33,7 +34,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item dresses">
                 <div className="swiper-container slider">
@@ -49,7 +51,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item grid__item--size-a shirts">
                 <div className="swiper-container slider">
@@ -65,7 +68,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item trousers">
                 <div className="swiper-container slider">
@@ -81,7 +85,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item grid__item--size-a jackets">
                 <div className="swiper-container slider">
@@ -97,7 +102,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item shoes">
                 <div className="swiper-container slider">
@@ -113,7 +119,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item shirts">
                 <div className="swiper-container slider">
@@ -129,7 +136,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item shoes">
                 <div className="swiper-container slider">
@@ -145,7 +153,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item dresses">
                 <div className="swiper-container slider">
@@ -161,7 +170,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item shirts">
                 <div className="swiper-container slider">
@@ -177,7 +187,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item trousers">
                 <div className="swiper-container slider">
@@ -193,7 +204,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item jackets">
                 <div className="swiper-container slider">
@@ -209,7 +221,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item shoes">
                 <div className="swiper-container slider">
@@ -225,7 +238,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item grid__item--size-a dresses">
                 <div className="swiper-container slider">
@@ -241,7 +255,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item trousers">
                 <div className="swiper-container slider">
@@ -257,7 +272,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item shoes">
                 <div className="swiper-container slider">
@@ -273,7 +289,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item jackets">
                 <div className="swiper-container slider">
@@ -289,7 +306,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item shirts">
                 <div className="swiper-container slider">
@@ -305,7 +323,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item shoes">
                 <div className="swiper-container slider">
@@ -321,7 +340,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item dresses">
                 <div className="swiper-container slider">
@@ -337,7 +357,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item shirts">
                 <div className="swiper-container slider">
@@ -353,7 +374,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item grid__item--size-a trousers">
                 <div className="swiper-container slider">
@@ -369,7 +391,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item jackets">
                 <div className="swiper-container slider">
@@ -385,7 +408,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item shoes">
                 <div className="swiper-container slider">
@@ -401,7 +425,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item shirts">
                 <div className="swiper-container slider">
@@ -417,7 +442,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item shoes">
                 <div className="swiper-container slider">
@@ -433,7 +459,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item dresses">
                 <div className="swiper-container slider">
@@ -449,7 +476,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item shirts">
                 <div className="swiper-container slider">
@@ -465,7 +493,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item trousers">
                 <div className="swiper-container slider">
@@ -481,7 +510,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item jackets">
                 <div className="swiper-container slider">
@@ -497,7 +527,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item shoes">
                 <div className="swiper-container slider">
@@ -513,7 +544,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item grid__item--size-a dresses">
                 <div className="swiper-container slider">
@@ -529,7 +561,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item trousers">
                 <div className="swiper-container slider">
@@ -545,7 +578,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item shoes">
                 <div className="swiper-container slider">
@@ -561,7 +595,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
             <div className="grid__item jackets">
                 <div className="swiper-container slider">
@@ -577,7 +612,8 @@ const Grid = () => {
                     <span className="meta__brand">Dummy Brand</span>
                     <span className="meta__price">$99</span>
                 </div>
-                <button className="action action--button action--buy"><i className="fa fa-shopping-cart"></i><span className="text-hidden">Add to cart</span></button>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="text-hidden">Add to cart</span></button>
+                <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
             </div>
         </section>
     );

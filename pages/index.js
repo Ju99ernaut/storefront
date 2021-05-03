@@ -2,9 +2,12 @@ import { useEffect } from 'react';
 import BottomBar from '../components/BottomBar';
 import NavBar from '../components/NavBar';
 import Grid from '../components/Grid';
+import CompareBasket from '../components/CompareBasket';
+import CompareWrapper from '../components/CompareWrapper';
 import imagesLoaded from '../utils/imagesLoaded';
 import throttle from '../utils/throttle';
 import Shuffle from 'shufflejs';
+import CompareBasketObj from '../utils/compareBasket';
 //import Swiper from 'swiper/bundle';
 import Swiper, { Pagination, EffectCoverflow, Zoom } from 'swiper/core';
 import 'swiper/swiper-bundle.css';
@@ -18,8 +21,8 @@ export default function Home() {
       // array where the swiper instances are going to be stored
       swipers = [],
       //viewEl = document.querySelector('.view'),
-      //items = [].slice.call(document.querySelectorAll('.grid__item')),
-      //basket,
+      items = [].slice.call(document.querySelectorAll('.grid__item')),
+      basket,
       // grid element
       grid = document.querySelector('.grid'),
       // shuffle instance
@@ -54,7 +57,7 @@ export default function Home() {
     function init() {
       // preload images
       imagesLoaded(grid, function () {
-        //basket = new CompareBasket();
+        basket = new CompareBasketObj(items);
         initSwiper();
         initShuffle();
         initEvents();
@@ -120,6 +123,24 @@ export default function Home() {
         const btn = item.querySelector('.action--buy');
         btn && btn.addEventListener('click', addToCart);
       });
+
+      items.forEach(function (item) {
+        const checkbox = item.querySelector('.action--compare-add > input[type = "checkbox"]');
+        checkbox.checked = false;
+
+        // ctrl to add to the "compare basket"
+        checkbox.addEventListener('click', function (ev) {
+          if (ev.target.checked) {
+            if (basket.isFull()) {
+              ev.preventDefault();
+              return false;
+            }
+            basket.add(item);
+          } else {
+            basket.remove(item);
+          }
+        });
+      });
     }
 
     function addToCart() {
@@ -135,11 +156,13 @@ export default function Home() {
 
   return (
     <>
+      <CompareBasket />
       <BottomBar />
       <div className="view">
         <NavBar />
         <Grid />
       </div>
+      <CompareWrapper />
     </>
   )
 }
