@@ -3,7 +3,7 @@
     "short_name": "Storefrornt",
     "theme_color": "#2A2B30",
     "background_color": "#2A2B30",
-    "display": "fullscreen",
+    "display": "standalone",
     "orientation": "portrait",
     "scope": "/",
     "start_url": "/",
