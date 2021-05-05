@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import '../styles/globals.css'
+import '../styles/sidebar.css'
 import '../styles/fonts/pixelfabric-clothes/style.css'
 import 'font-awesome/css/font-awesome.min.css'
 
