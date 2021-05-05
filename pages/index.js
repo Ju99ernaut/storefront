@@ -1,13 +1,17 @@
 import { useEffect } from 'react';
 import BottomBar from '../components/BottomBar';
 import NavBar from '../components/NavBar';
+import SideBar from '../components/SideBar';
+import Hamburger from '../components/Hamburger';
 import Grid from '../components/Grid';
 import CompareBasket from '../components/CompareBasket';
 import CompareWrapper from '../components/CompareWrapper';
 import imagesLoaded from '../utils/imagesLoaded';
 import throttle from '../utils/throttle';
+import menuTouch from '../utils/touch';
 import Shuffle from 'shufflejs';
 import CompareBasketObj from '../utils/compareBasket';
+import MLMenu from '../utils/menu';
 //import Swiper from 'swiper/bundle';
 import Swiper, { Pagination, EffectCoverflow, Zoom } from 'swiper/core';
 import 'swiper/swiper-bundle.css';
@@ -21,6 +25,10 @@ export default function Home() {
       // array where the swiper instances are going to be stored
       swipers = [],
       //viewEl = document.querySelector('.view'),
+      mlmenu,
+      menuEl = document.getElementById('ml-menu'),
+      openMenuCtrl = document.querySelector('.action--open'),
+      closeMenuCtrl = document.querySelector('.action--close-nav'),
       items = [].slice.call(document.querySelectorAll('.grid__item')),
       basket,
       // grid element
@@ -58,6 +66,14 @@ export default function Home() {
       // preload images
       imagesLoaded(grid, function () {
         basket = new CompareBasketObj(items);
+        mlmenu = new MLMenu(menuEl, {
+          onEndAnimation,
+          // breadcrumbsCtrl : true, // show breadcrumbs
+          // initialBreadcrumb : 'all', // initial breadcrumb text
+          // backCtrl : false, // show back button
+          // itemsDelayInterval : 60, // delay between each menu item sliding animation
+          // onItemClick: loadDummyData // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
+        });
         initSwiper();
         initShuffle();
         initEvents();
@@ -141,6 +157,21 @@ export default function Home() {
           }
         });
       });
+
+      openMenuCtrl.addEventListener('click', openMenu);
+      closeMenuCtrl.addEventListener('click', closeMenu);
+
+      menuTouch(menuEl, openMenuCtrl, openMenu, closeMenu, .5);
+    }
+
+    function openMenu() {
+      menuEl.classList.add('menu--open');
+      closeMenuCtrl.focus();
+    }
+
+    function closeMenu() {
+      menuEl.classList.remove('menu--open');
+      openMenuCtrl.focus();
     }
 
     function addToCart() {
@@ -158,6 +189,8 @@ export default function Home() {
     <>
       <CompareBasket />
       <BottomBar />
+      <Hamburger />
+      <SideBar />
       <div className="view">
         <NavBar />
         <Grid />
