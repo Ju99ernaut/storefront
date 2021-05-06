@@ -28,19 +28,33 @@
 
 .menu {
     position: fixed;
-    z-index: 1000;
     top: 0;
-    left: 0;
+    z-index: 1000;
     width: 300px;
     height: 100vh;
     background: #1c1d22;
-    -webkit-transform: translate3d(-300px, 0, 0);
-    transform: translate3d(-300px, 0, 0);
-    -webkit-transition: -webkit-transform 0.3s;
     transition: transform 0.3s;
+    -webkit-transition: -webkit-transform 0.3s;
 }
 
-.menu.menu--open {
+.left {
+    left: 0;
+    -webkit-transform: translate3d(-300px, 0, 0);
+    transform: translate3d(-300px, 0, 0);
+}
+
+.right {
+    right: 0;
+    -webkit-transform: translate3d(300px, 0, 0);
+    transform: translate3d(300px, 0, 0);
+}
+
+.menu.left.menu--open {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.menu.right.menu--open {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
@@ -310,15 +324,27 @@
     color: #b4b5b8;
 }
 
+.action--close-cart {
+    font-size: 1.1em;
+    top: 1.25em;
+    left: 1em;
+    color: #b4b5b8;
+}
+
 @media screen and (max-width: 40em) {
 
     .menu {
-        top: 0;
         width: 75%;
         height: 100vh;
+    }
+
+    .left {
         -webkit-transform: translate3d(-100%, 0, 0);
         transform: translate3d(-100%, 0, 0);
-        -webkit-transition: -webkit-transform 0.3s;
-        transition: transform 0.3s;
+    }
+
+    .right {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
     }
 }
