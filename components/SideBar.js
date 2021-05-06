@@ -2,7 +2,7 @@ import styles from '../styles/Hamburger.module.css';
 
 const SideBar = () => {
     return (
-        <nav id="ml-menu" className="menu">
+        <nav id="ml-menu" className="menu left">
             <button className={`${styles.action} action--close-nav`} aria-label="Close Menu"><span className="fa-icon icon--cross"></span></button>
             <div className="menu__wrap">
                 <ul data-menu="main" className="menu__level" tabIndex="-1" role="menu" aria-label="All">
