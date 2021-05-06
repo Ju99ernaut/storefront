@@ -1,4 +1,4 @@
-export default function menuTouch(menuEl, openEl, open, close, threshold, mouse = false) {
+export default function menuTouch(menuEl, openEl, open, close, threshold, invert = false, mouse = false) {
     function unify(e) {
         return e.changedTouches ? e.changedTouches[0] : e;
     }
@@ -15,10 +15,12 @@ export default function menuTouch(menuEl, openEl, open, close, threshold, mouse 
                 f = +(s * dx / menuEl.getBoundingClientRect().width).toFixed(2); // Calculate movement %
             // Only open if greater than threshold
             if (s > 0 && f > threshold) {
-                open();
+                !invert && open();
+                invert && close();
                 x0 = null;
             } else if (f > threshold) {
-                close();
+                !invert && close();
+                invert && open();
                 x0 = null;
             }
         }
@@ -29,8 +31,8 @@ export default function menuTouch(menuEl, openEl, open, close, threshold, mouse 
     function drag(e) {
         e.preventDefault();
         const dx = unify(e).clientX - x0,
-            s = Math.sign(dx)
-        if ((x0 || x0 == 0) && s < 0) {
+            s = Math.sign(dx);
+        if ((x0 || x0 == 0) && ((!invert && s < 0) || (invert && s > 0))) {
             const tx = Math.round(dx);
             menuEl.style.transform = `translate3d(${tx}px, 0, 0)`;
             menuEl.style.webkitTransform = `translate3d(${tx}px, 0, 0)`;
