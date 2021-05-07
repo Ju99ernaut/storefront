@@ -1,0 +1,102 @@
+.itemContainer {
+    display: flex;
+    flex-direction: row;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.removing {
+    opacity: 0.75;
+    pointer-events: none;
+}
+
+.quantityContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 0.75rem;
+}
+
+.quantity {
+    appearance: textfield;
+    width: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    border-radius: 0.25rem;
+    text-align: center;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: inherit;
+}
+
+.quantity::-webkit-outer-spin-button,
+.quantity::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+}
+
+.priceContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.btn {
+    color: inherit;
+    background: none;
+    border: none;
+}
+
+.removeButton {
+    display: flex;
+    justify-content: flex-end;
+    outline: none;
+    color: inherit;
+    background: none;
+    border: none;
+}
+
+.productImageContainer {
+    width: 4rem;
+    height: 4rem;
+    background-color: #5C5EDC;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.productImage {
+    position: absolute;
+    transform: scale(1.9);
+    width: 100%;
+    height: 100%;
+    left: 30% !important;
+    top: 30% !important;
+}
+
+.variantContainer {
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.variantName {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.variantValue {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+}

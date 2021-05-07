@@ -338,6 +338,10 @@
         height: 100vh;
     }
 
+    .menu.right {
+        width: 100%;
+    }
+
     .left {
         -webkit-transform: translate3d(-100%, 0, 0);
         transform: translate3d(-100%, 0, 0);
