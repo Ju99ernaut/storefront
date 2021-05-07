@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import BottomBar from '../components/BottomBar';
 import NavBar from '../components/NavBar';
 import SideBar from '../components/SideBar';
+import Cart from '../components/Cart';
 import Hamburger from '../components/Hamburger';
 import Grid from '../components/Grid';
 import CompareBasket from '../components/CompareBasket';
@@ -12,7 +13,6 @@ import menuTouch from '../utils/touch';
 import Shuffle from 'shufflejs';
 import CompareBasketObj from '../utils/compareBasket';
 import MLMenu from '../utils/menu';
-//import Swiper from 'swiper/bundle';
 import Swiper, { Pagination, EffectCoverflow, Zoom } from 'swiper/core';
 import 'swiper/swiper-bundle.css';
 
@@ -28,7 +28,7 @@ export default function Home() {
       mlmenu,
       menuEl = document.getElementById('ml-menu'),
       openMenuCtrl = document.querySelector('.action--open'),
-      closeMenuCtrl = document.querySelector('.action--close-nav'),
+      closeMenuCtrl = menuEl.querySelector('.action--close-nav'),
       items = [].slice.call(document.querySelectorAll('.grid__item')),
       basket,
       // grid element
@@ -39,7 +39,9 @@ export default function Home() {
       filterCtrls = [].slice.call(document.querySelectorAll('.filter > button')),
       // cart
       cart = document.querySelector('.cart'),
-      cartItems = cart.querySelector('.cart__count');
+      cartItems = cart.querySelector('.cart__count'),
+      cartEl = document.getElementById('cart-menu'),
+      closeCartCtrl = cartEl.querySelector('.action--close-cart');
     //zoomCtrls = [].slice.call(document.querySelectorAll('.action--zoom'));
 
     const support = { animations: window.Modernizr.cssanimations },
@@ -68,11 +70,8 @@ export default function Home() {
         basket = new CompareBasketObj(items);
         mlmenu = new MLMenu(menuEl, {
           onEndAnimation,
-          // breadcrumbsCtrl : true, // show breadcrumbs
-          // initialBreadcrumb : 'all', // initial breadcrumb text
-          // backCtrl : false, // show back button
-          // itemsDelayInterval : 60, // delay between each menu item sliding animation
-          // onItemClick: loadDummyData // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
+          // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
+          // onItemClick: sortFilter
         });
         initSwiper();
         initShuffle();
@@ -162,6 +161,11 @@ export default function Home() {
       closeMenuCtrl.addEventListener('click', closeMenu);
 
       menuTouch(menuEl, openMenuCtrl, openMenu, closeMenu, .5);
+
+      cart.addEventListener('click', openCart);
+      closeCartCtrl.addEventListener('click', closeCart);
+
+      menuTouch(cartEl, cart, openCart, closeCart, .5, true);
     }
 
     function openMenu() {
@@ -172,6 +176,16 @@ export default function Home() {
     function closeMenu() {
       menuEl.classList.remove('menu--open');
       openMenuCtrl.focus();
+    }
+
+    function openCart() {
+      cartEl.classList.add('menu--open');
+      closeCartCtrl.focus();
+    }
+
+    function closeCart() {
+      cartEl.classList.remove('menu--open');
+      cart.focus();
     }
 
     function addToCart() {
@@ -191,6 +205,7 @@ export default function Home() {
       <BottomBar />
       <Hamburger />
       <SideBar />
+      <Cart />
       <div className="view">
         <NavBar />
         <Grid />
