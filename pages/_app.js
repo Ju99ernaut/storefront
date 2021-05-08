@@ -33,7 +33,7 @@ export default function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
-        <meta name="theme-color" content="#317EFB" />
+        <meta name="theme-color" content="#2A2B30" />
         <script src="/modernizr.custom.js"></script>
       </Head>
       <Component {...pageProps} />
