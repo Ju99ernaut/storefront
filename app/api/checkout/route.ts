@@ -1,11 +1,10 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from "next/server";
 import {
   API_CONFIG,
-  generatePdfViaApi,
-  renderEmailHtmlViaApi,
+  generateViaApi,
   sendRenderedEmailWithAttachments,
   OrderTemplateData,
-} from '../../../utils/documentEmailService';
+} from "../../../utils/documentEmailService";
 
 interface CheckoutRequestBody {
   customer?: {
@@ -36,15 +35,15 @@ export async function POST(request: NextRequest) {
 
     if (!customer?.email || !customer?.name) {
       return NextResponse.json(
-        { error: 'Customer name and email address are required.' },
-        { status: 400 }
+        { error: "Customer name and email address are required." },
+        { status: 400 },
       );
     }
 
     if (!Array.isArray(items) || items.length === 0) {
       return NextResponse.json(
-        { error: 'Cannot checkout with an empty cart.' },
-        { status: 400 }
+        { error: "Cannot checkout with an empty cart." },
+        { status: 400 },
       );
     }
 
@@ -70,7 +69,7 @@ export async function POST(request: NextRequest) {
     });
 
     const subTotal = Number(
-      lineItems.reduce((acc, item) => acc + item.lineTotal, 0).toFixed(2)
+      lineItems.reduce((acc, item) => acc + item.lineTotal, 0).toFixed(2),
     );
     const taxRate = 0.08;
     const tax = Number((subTotal * taxRate).toFixed(2));
@@ -78,24 +77,24 @@ export async function POST(request: NextRequest) {
     const grandTotal = Number((subTotal + tax + shipping).toFixed(2));
 
     const cardLast4 = payment?.cardNumber
-      ? String(payment.cardNumber).replace(/\D/g, '').slice(-4) || '4242'
-      : '4242';
+      ? String(payment.cardNumber).replace(/\D/g, "").slice(-4) || "4242"
+      : "4242";
 
     const sharedTemplateData: OrderTemplateData = {
       orderId,
       invoiceNumber,
       receiptNumber,
       issuedAt: timestamp,
-      currency: 'USD',
+      currency: "USD",
       customer: {
         name: customer.name,
         email: customer.email,
-        address: customer.address || '',
+        address: customer.address || "",
       },
       paymentSummary: {
-        method: 'Credit Card',
+        method: "Credit Card",
         cardLast4,
-        status: 'PAID',
+        status: "PAID",
         paidAt: timestamp,
       },
       items: lineItems,
@@ -109,35 +108,36 @@ export async function POST(request: NextRequest) {
 
     const subject = `Your Storefront Order ${orderId} — Invoice & Receipt`;
 
-    // 1. POST { templateId, data } to PDF API (for Invoice & Receipt) and Email Template API (which responds with HTML)
     const [invoicePdf, receiptPdf, renderedEmail] = await Promise.all([
-      generatePdfViaApi({
+      generateViaApi({
         templateId: API_CONFIG.templates.invoicePdf,
+        formats: ["pdf"],
         filename: `Invoice-${invoiceNumber}.pdf`,
         data: {
-          documentType: 'INVOICE',
+          documentType: "INVOICE",
           ...sharedTemplateData,
         },
       }),
-      generatePdfViaApi({
+      generateViaApi({
         templateId: API_CONFIG.templates.receiptPdf,
+        formats: ["pdf"],
         filename: `Receipt-${receiptNumber}.pdf`,
         data: {
-          documentType: 'RECEIPT',
+          documentType: "RECEIPT",
           ...sharedTemplateData,
         },
       }),
-      renderEmailHtmlViaApi({
+      generateViaApi({
         templateId: API_CONFIG.templates.receiptEmail,
+        formats: ["html"],
         data: {
-          documentType: 'EMAIL',
+          documentType: "EMAIL",
           subject,
           ...sharedTemplateData,
         },
       }),
     ]);
 
-    // 2. Send the rendered HTML email with the Invoice & Receipt PDF attachments via Nodemailer
     const emailResult = await sendRenderedEmailWithAttachments({
       to: customer.email,
       subject,
@@ -161,15 +161,13 @@ export async function POST(request: NextRequest) {
         invoice: {
           filename: invoicePdf.filename,
           templateId: invoicePdf.templateId,
-          documentId: invoicePdf.documentId,
-          mode: invoicePdf.mode,
+          pdf: invoicePdf.pdf,
           payloadSent: invoicePdf.payloadSent,
         },
         receipt: {
           filename: receiptPdf.filename,
           templateId: receiptPdf.templateId,
-          documentId: receiptPdf.documentId,
-          mode: receiptPdf.mode,
+          pdf: receiptPdf.pdf,
           payloadSent: receiptPdf.payloadSent,
         },
       },
@@ -181,9 +179,9 @@ export async function POST(request: NextRequest) {
         previewUrl: emailResult.previewUrl,
         templateId: emailResult.templateId,
         attachmentsCount: emailResult.attachmentsCount,
-        attachmentFilenames: emailResult.attachmentFilenames,
+        attachments: emailResult.attachments,
         renderedHtml: emailResult.renderedHtml,
-        mode: emailResult.mode,
+        html: renderedEmail.html,
         payloadSent: emailResult.payloadSent,
       },
     });
@@ -191,7 +189,7 @@ export async function POST(request: NextRequest) {
     const message =
       error instanceof Error
         ? error.message
-        : 'An unexpected error occurred during checkout.';
+        : "An unexpected error occurred during checkout.";
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }

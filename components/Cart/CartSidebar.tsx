@@ -33,15 +33,23 @@ interface CheckoutSuccessResponse {
     invoice: {
       filename: string;
       templateId: string;
-      documentId: string;
-      mode: string;
+      pdf?: {
+        url: string;
+        sizeBytes: number;
+        mimeType: string;
+        checksum: string;
+      };
       payloadSent: unknown;
     };
     receipt: {
       filename: string;
       templateId: string;
-      documentId: string;
-      mode: string;
+      pdf?: {
+        url: string;
+        sizeBytes: number;
+        mimeType: string;
+        checksum: string;
+      };
       payloadSent: unknown;
     };
   };
@@ -53,9 +61,19 @@ interface CheckoutSuccessResponse {
     previewUrl: string | null;
     templateId: string;
     attachmentsCount: number;
-    attachmentFilenames: string[];
+    attachments: Array<{
+      filename: string;
+      path: string;
+      contentType: string;
+    }>;
     renderedHtml: string;
-    mode: string;
+    html?: {
+      htmlDocument: string;
+      checksum: string;
+      mimeType: string;
+      url: string;
+      sizeBytes: number;
+    };
     payloadSent: unknown;
   };
 }
@@ -408,10 +426,12 @@ const CartSidebar = ({
               {JSON.stringify(
                 {
                   invoicePdfApiPost: orderResult.documents.invoice.payloadSent,
+                  invoicePdfOutput: orderResult.documents.invoice.pdf,
                   receiptPdfApiPost: orderResult.documents.receipt.payloadSent,
+                  receiptPdfOutput: orderResult.documents.receipt.pdf,
                   emailTemplateApiPost: orderResult.email.payloadSent,
-                  emailTemplateApiResponseHtml: orderResult.email.renderedHtml,
-                  attachedFilesSent: orderResult.email.attachmentFilenames,
+                  emailTemplateHtmlOutput: orderResult.email.html,
+                  attachmentsViaUrl: orderResult.email.attachments,
                 },
                 null,
                 2

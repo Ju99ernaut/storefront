@@ -1,51 +1,48 @@
-'use client';
+"use client";
 
-import { useState, useRef, useMemo } from 'react';
-import BottomBar from '../components/BottomBar';
-import NavBar from '../components/NavBar';
-import SideBar from '../components/SideBar';
-import Cart from '../components/Cart';
-import Hamburger from '../components/Hamburger';
-import Grid from '../components/Grid';
-import CompareBasket from '../components/CompareBasket';
-import CompareWrapper from '../components/CompareWrapper';
-import { PRODUCTS, Product, CartLineItem } from '../data/products';
+import { useState, useRef, useMemo } from "react";
+import BottomBar from "../components/BottomBar";
+import NavBar from "../components/NavBar";
+import SideBar from "../components/SideBar";
+import Cart from "../components/Cart";
+import Hamburger from "../components/Hamburger";
+import Grid from "../components/Grid";
+import CompareBasket from "../components/CompareBasket";
+import CompareWrapper from "../components/CompareWrapper";
+import { PRODUCTS, Product, CartLineItem } from "../data/products";
 
 const MAX_COMPARE_ITEMS = 3;
 
 export default function HomePage() {
-  const [activeFilter, setActiveFilter] = useState<string>('all');
+  const [activeFilter, setActiveFilter] = useState<string>("all");
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const [isCartAnimating, setIsCartAnimating] = useState<boolean>(false);
   const [compareItems, setCompareItems] = useState<Product[]>([]);
   const [isCompareOpen, setIsCompareOpen] = useState<boolean>(false);
 
-  // Pre-populate cart with one item from the catalog so checkout can be tested immediately
-  const [cartItems, setCartItems] = useState<CartLineItem[]>(() => [
-    { ...PRODUCTS[0], quantity: 1 },
-  ]);
+  const [cartItems, setCartItems] = useState<CartLineItem[]>(() => []);
 
   const hamburgerRef = useRef<HTMLButtonElement | null>(null);
   const cartBtnRef = useRef<HTMLButtonElement | null>(null);
 
   const totalCartCount = useMemo(
     () => cartItems.reduce((acc, item) => acc + item.quantity, 0),
-    [cartItems]
+    [cartItems],
   );
 
   const visibleProductsCount = useMemo(() => {
-    if (!activeFilter || activeFilter === 'all') return PRODUCTS.length;
+    if (!activeFilter || activeFilter === "all") return PRODUCTS.length;
     return PRODUCTS.filter(
       (p) =>
         p.category === activeFilter ||
-        (Array.isArray(p.tags) && p.tags.includes(activeFilter))
+        (Array.isArray(p.tags) && p.tags.includes(activeFilter)),
     ).length;
   }, [activeFilter]);
 
   const compareIds = useMemo(
     () => compareItems.map((item) => item.id),
-    [compareItems]
+    [compareItems],
   );
 
   const handleAddToCart = (product: Product) => {
@@ -56,7 +53,7 @@ export default function HomePage() {
         return prev.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
-            : item
+            : item,
         );
       }
       return [...prev, { ...product, quantity: 1 }];
@@ -75,8 +72,8 @@ export default function HomePage() {
       prev.map((item) =>
         item.id === productId
           ? { ...item, quantity: Math.min(99, nextQty) }
-          : item
-      )
+          : item,
+      ),
     );
   };
 
@@ -161,10 +158,10 @@ export default function HomePage() {
         onClearCart={handleClearCart}
       />
 
-      <div className={`view${isCompareOpen ? ' view--compare' : ''}`}>
+      <div className={`view${isCompareOpen ? " view--compare" : ""}`}>
         <NavBar
           activeFilter={activeFilter}
-          onResetFilter={() => setActiveFilter('all')}
+          onResetFilter={() => setActiveFilter("all")}
           totalShowing={visibleProductsCount}
           totalProducts={PRODUCTS.length}
         />
