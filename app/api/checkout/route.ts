@@ -1,10 +1,10 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from 'next/server';
 import {
   API_CONFIG,
   generateViaApi,
   sendRenderedEmailWithAttachments,
   OrderTemplateData,
-} from "../../../utils/documentEmailService";
+} from '../../../utils/documentEmailService';
 
 interface CheckoutRequestBody {
   customer?: {
@@ -35,15 +35,15 @@ export async function POST(request: NextRequest) {
 
     if (!customer?.email || !customer?.name) {
       return NextResponse.json(
-        { error: "Customer name and email address are required." },
-        { status: 400 },
+        { error: 'Customer name and email address are required.' },
+        { status: 400 }
       );
     }
 
     if (!Array.isArray(items) || items.length === 0) {
       return NextResponse.json(
-        { error: "Cannot checkout with an empty cart." },
-        { status: 400 },
+        { error: 'Cannot checkout with an empty cart.' },
+        { status: 400 }
       );
     }
 
@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
     });
 
     const subTotal = Number(
-      lineItems.reduce((acc, item) => acc + item.lineTotal, 0).toFixed(2),
+      lineItems.reduce((acc, item) => acc + item.lineTotal, 0).toFixed(2)
     );
     const taxRate = 0.08;
     const tax = Number((subTotal * taxRate).toFixed(2));
@@ -77,24 +77,24 @@ export async function POST(request: NextRequest) {
     const grandTotal = Number((subTotal + tax + shipping).toFixed(2));
 
     const cardLast4 = payment?.cardNumber
-      ? String(payment.cardNumber).replace(/\D/g, "").slice(-4) || "4242"
-      : "4242";
+      ? String(payment.cardNumber).replace(/\D/g, '').slice(-4) || '4242'
+      : '4242';
 
     const sharedTemplateData: OrderTemplateData = {
       orderId,
       invoiceNumber,
       receiptNumber,
       issuedAt: timestamp,
-      currency: "USD",
+      currency: 'USD',
       customer: {
         name: customer.name,
         email: customer.email,
-        address: customer.address || "",
+        address: customer.address || '',
       },
       paymentSummary: {
-        method: "Credit Card",
+        method: 'Credit Card',
         cardLast4,
-        status: "PAID",
+        status: 'PAID',
         paidAt: timestamp,
       },
       items: lineItems,
@@ -111,27 +111,27 @@ export async function POST(request: NextRequest) {
     const [invoicePdf, receiptPdf, renderedEmail] = await Promise.all([
       generateViaApi({
         templateId: API_CONFIG.templates.invoicePdf,
-        formats: ["pdf"],
+        formats: ['pdf'],
         filename: `Invoice-${invoiceNumber}.pdf`,
         data: {
-          documentType: "INVOICE",
+          documentType: 'INVOICE',
           ...sharedTemplateData,
         },
       }),
       generateViaApi({
         templateId: API_CONFIG.templates.receiptPdf,
-        formats: ["pdf"],
+        formats: ['pdf'],
         filename: `Receipt-${receiptNumber}.pdf`,
         data: {
-          documentType: "RECEIPT",
+          documentType: 'RECEIPT',
           ...sharedTemplateData,
         },
       }),
       generateViaApi({
         templateId: API_CONFIG.templates.receiptEmail,
-        formats: ["html"],
+        formats: ['html'],
         data: {
-          documentType: "EMAIL",
+          documentType: 'EMAIL',
           subject,
           ...sharedTemplateData,
         },
@@ -189,7 +189,7 @@ export async function POST(request: NextRequest) {
     const message =
       error instanceof Error
         ? error.message
-        : "An unexpected error occurred during checkout.";
+        : 'An unexpected error occurred during checkout.';
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }
